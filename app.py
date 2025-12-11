@@ -45,7 +45,15 @@ def home():
     seo_data = {
         "title": "Boutique Cote Piste | Accueil",
         "description": "Les meilleurs produits...",
-        "canonical": "https://cotepisteproject-shop.herokuapp.com/"
+        "canonical": "https://cotepisteproject-shop.herokuapp.com/",
+        # VOICI LA PARTIE QUI MANQUAIT :
+        "json_ld": {
+            "@context": "https://schema.org",
+            "@type": "Store",
+            "name": "Cote Piste Project",
+            "url": "https://cotepisteproject-shop.herokuapp.com/",
+            "description": "La référence pour vos équipements."
+        }
     }
     # On passe la liste des produits au HTML
     return render_template('index.html', seo=seo_data, products=products)
