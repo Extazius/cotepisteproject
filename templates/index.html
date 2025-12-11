@@ -50,9 +50,19 @@
             <p>La performance commence ici.</p>
         </article>
         
-        <section>
+		<section>
             <h2>Nos derniers produits</h2>
-            <p>Le contenu arrivera bientôt...</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+                {% for product in products %}
+                <article style="border: 1px solid #ddd; padding: 1rem;">
+                    <!-- Le lien utilise le "slug" pour créer une URL parfaite -->
+                    <h3><a href="/produit/{{ product.slug }}">{{ product.name }}</a></h3>
+                    <p>{{ product.price }} €</p>
+                </article>
+                {% else %}
+                <p>Aucun produit pour le moment.</p>
+                {% endfor %}
+            </div>
         </section>
     </main>
 
