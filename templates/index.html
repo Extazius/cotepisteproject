@@ -1,0 +1,64 @@
+<!-- Fichier: templates/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO ESSENTIALS -->
+    <title>{{ seo.title }}</title>
+    <meta name="description" content="{{ seo.description }}">
+    <link rel="canonical" href="{{ seo.canonical }}">
+    <meta name="robots" content="index, follow">
+
+    <!-- OPEN GRAPH (Pour les partages Facebook/LinkedIn/WhatsApp) -->
+    <meta property="og:title" content="{{ seo.title }}">
+    <meta property="og:description" content="{{ seo.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ seo.canonical }}">
+
+    <!-- PERFORMANCES -->
+    <!-- On indique au navigateur de se connecter en avance aux domaines tiers si besoin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- DONNÉES STRUCTURÉES (JSON-LD) - Le langage secret de Google -->
+    <script type="application/ld+json">
+        {{ seo.json_ld | tojson | safe }}
+    </script>
+
+    <style>
+        /* CSS Critique Inline (pour afficher le haut de page instantanément) */
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; line-height: 1.5; color: #333; }
+        header { background: #111; color: #fff; padding: 1rem; text-align: center; }
+        main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        h1 { margin: 0; font-size: 1.5rem; }
+        .hero { padding: 4rem 1rem; background: #f4f4f4; text-align: center; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+        <nav role="navigation">
+            <!-- Navigation simple et sémantique -->
+            <strong>Cote Piste</strong>
+        </nav>
+    </header>
+
+    <main role="main">
+        <article class="hero">
+            <h1>Bienvenue sur Cote Piste Project</h1>
+            <p>La performance commence ici.</p>
+        </article>
+        
+        <section>
+            <h2>Nos derniers produits</h2>
+            <p>Le contenu arrivera bientôt...</p>
+        </section>
+    </main>
+
+    <footer role="contentinfo" style="text-align:center; margin-top:3rem; font-size:0.8rem;">
+        <p>&copy; 2024 Cote Piste Project. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
